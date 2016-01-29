@@ -1,0 +1,242 @@
+@CHARSET "UTF-8";
+
+*{
+	margin:0;
+	padding:0;
+}
+
+.log{
+	position: absolute;
+	background-color: white;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+}
+
+.table {
+	display: block;
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+.tableClient{
+	display: block;
+    text-align: left;
+    width: 400px;
+    max-width: 100%;
+    margin-bottom: 10px;
+    border: 2px solid #cdcdcd; 
+}
+
+.tbodyClient{
+	border: 2px solid #cdcdcd;
+}
+
+.success{
+	border: 2px solid #cdcdcd;
+}
+
+.tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+
+
+
+.bodyMain{
+	
+	background-position: 0 0, center 0;
+    background-repeat: repeat-x, no-repeat;
+    position: relative;
+    background: none;
+}
+
+.panel{
+    position: relative;
+    overflow: auto;
+    width: 1200px;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: rgba(219,203,187,0.5);
+    height: auto;
+    min-height: 800px;
+}
+
+.filterPanel{
+    position: relative;
+    width: 1200px;
+    background-color: rgba(219,203,187,0.5);
+    min-height: 50px;
+}
+
+.MainDiv{
+	position: static;
+    background-color: #fff;
+   	overflow-x: hidden;
+    display: block;
+    max-width: 1913px;
+    margin: 0 auto;
+    min-width: 20em;
+    box-sizing: border-box;
+}
+
+.header {
+	background-color: #1b1d1f;
+   	height: 150px;
+    margin-bottom: 0;
+    text-align: right;
+    position: relative;
+    z-index: 2;
+    background: url(../images/top.png) no-repeat center top;
+}
+
+.aHeader {
+	position:absolute;
+     display: block; /* Ссылка как блочный элемент */
+     text-align: center; /* Выравнивание по центру */
+     height: 100%; /* Высота на весь слой */
+   width: 100%;
+    }
+
+
+.MainMenu{
+	top: 112px;
+	position: absolute;
+    z-index: 20;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial,sans-serif;
+    font-size: 100%;
+}
+
+.body{
+	width: 100%;
+	position: relative;
+	min-height: 800px;
+}
+
+.footer{
+	background-color: #1b1d1f;
+    color: #fff;
+    padding-bottom: 4.375em;
+    background: url(../images/footer.jpg) no-repeat center top;
+    clear: both;
+}
+
+.CarList{
+	float: left;
+    margin: 0 0 0 30px;
+    overflow: hidden;
+    
+    width: 657px;
+    font: normal 12px Arial,Helvetica,sans-serif;
+}
+
+.headerCarList{
+	width: 270px;
+    padding: 0 10px 10px 0;
+    font-size: 14px;
+    line-height: 110%;
+    float: left;
+}
+
+.CarResult{	
+	overflow: hidden;
+    clear: both;
+    margin-bottom: 10px;
+     margin-top: 10px;
+    border: 2px solid #cdcdcd;
+    display: block;
+}
+.CarResultDayPrice{
+	width: 100px;
+    padding: 15px 10px 0 5px;
+    display: block;
+    float: left;
+    /* border-left: 2px solid #cdcdcd; */
+    border-right: 0;
+}
+
+.CarResultDetail{
+	width: 485px;
+    padding: 15px 10px 0 5px;
+    float: right;
+    	display:block;
+    border-left: 2px solid #cdcdcd;
+    border-right: 0;
+}
+
+.button{
+	display: block;
+    padding: 10px 0;
+    width: 160px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    background: rgb(219, 203, 187);
+    font-family: arial;
+    border-right: 1px solid #fff;
+}
+
+		ul.menu{
+					padding:0;
+					margin:0 auto;
+					width:645px;
+				}
+				ul.menu>li{
+					list-style:none;
+					float:left;
+				}
+				ul.menu>li>a{
+					display:block;
+					padding:10px 0;
+					width:160px;
+					text-align:center;
+					color:#fff;
+					text-decoration:none;
+					background:rgb(219, 203, 187);
+					font-family:arial;
+					border-right:1px solid #fff;
+				}
+				ul.menu>li:last-child>a{
+					border:none;
+				}
+				ul.menu li a:hover{
+					background:rgba(219,203,187,.4);
+					color:#000;
+					transition:1s;
+				}
+				
+				
+				ul.menu ul{
+					overflow:hidden;
+					height:0;
+					margin:0;
+					padding:0;
+					list-style:none;
+				}
+				ul.menu li:hover ul{
+					transition:0.3s;
+					height:auto;
+					background:#fff;
+				}
+				
+				ul.menu ul li a{
+					margin-left:-1px;
+					display:block;
+					padding:5px 0 5px 10px;
+					width:150px;
+					text-align:left;
+					color:#fff;
+					text-decoration:none;
+					background:rgb(219, 203, 187);
+					font-family:arial;
+					border-left:1px solid #fff;
+					border-right:1px solid #fff;
+				}
