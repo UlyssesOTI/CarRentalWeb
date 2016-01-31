@@ -17,7 +17,7 @@ public class Mark {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String markName;
-	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY,mappedBy = "mark")
+	@OneToMany(cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY,mappedBy = "mark")
 	private List<Model> models;
 	
 	public Mark() {

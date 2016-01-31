@@ -11,7 +11,7 @@
 </head>
 	<body>
 		<sec:authorize access="isAuthenticated()">
-			<a class="aHeader" href="/CarRental"></a>
+			<a class="aHeader" href="CarRental"></a>
 		</sec:authorize>
 		<sec:authorize access="hasRole('ADMIN')">
 			<a class="aHeader" href="managerMain"></a>

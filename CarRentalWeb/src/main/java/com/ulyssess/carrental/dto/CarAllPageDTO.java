@@ -1,18 +1,28 @@
 package com.ulyssess.carrental.dto;
 
-
+import com.fasterxml.jackson.annotation.JsonView;
+import com.ulyssess.carrental.controller.Views;
 
 public class CarAllPageDTO {
 	
 	private int id;
+	@JsonView(Views.Public.class)
 	private String markName;
+	@JsonView(Views.Public.class)
 	private String regNumber;
+	@JsonView(Views.Public.class)
 	private String regDate;
+	@JsonView(Views.Public.class)
 	private int seats;
+	@JsonView(Views.Public.class)
 	private Double dayPrice;
+	@JsonView(Views.Public.class)
 	private String gearBox;
+	@JsonView(Views.Public.class)
 	private String color;
+	@JsonView(Views.Public.class)
 	private String modelName;
+	
 	private String image;
 	
 	public CarAllPageDTO() {

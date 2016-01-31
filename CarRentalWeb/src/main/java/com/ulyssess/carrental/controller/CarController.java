@@ -1,6 +1,8 @@
 package com.ulyssess.carrental.controller;
 
 import java.util.Date;
+import java.util.List;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,8 +13,10 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-
+import com.fasterxml.jackson.annotation.JsonView;
+import com.ulyssess.carrental.dto.CarAllPageDTO;
 import com.ulyssess.carrental.entity.Car;
 import com.ulyssess.carrental.enums.Color;
 import com.ulyssess.carrental.service.CarService;
@@ -20,6 +24,7 @@ import com.ulyssess.carrental.service.ModelService;
 import com.ulyssess.carrental.validator.CarValidator;
 import com.ulyssess.carrental.validator.FileClass;
 import com.ulyssess.carrental.validator.FileValidator;
+
 
 @Controller
 public class CarController {
@@ -45,19 +50,27 @@ public class CarController {
 	private void initBinder(WebDataBinder binder) {
 		binder.setValidator(fileValidator);
 	}
+	
+	@RequestMapping(value = "/mShowCars")
+	public String getAllCars(){
+		return "car-allAjax";
+	}
+	
+	
+	
 
-	@RequestMapping(value = "/file", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/file", method = RequestMethod.GET)
 	public String getForm(Model model) {
 		FileClass fileModel = new FileClass();
 		model.addAttribute("file", fileModel);
 		return "file";
-	}
+	}*/
 	
-	@RequestMapping(value = "/mShowCars")
+	/*@RequestMapping(value = "/mShowCars")
 	public String getAllCars(Model model){
 		model.addAttribute("cars", carService.findAllDTO());
 		return "car-all";
-	}
+	}*/
 	
 	@RequestMapping(value = "/mCreateCar")
 	public String createCarPage(Model model) {

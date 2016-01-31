@@ -1,7 +1,6 @@
 package com.ulyssess.carrental.controller;
 
 import java.security.Principal;
-import java.text.DateFormat;
 import java.util.Date;
 
 import javax.validation.Valid;
@@ -16,10 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ulyssess.carrental.entity.Contract;
-import com.ulyssess.carrental.entity.Reservation;
 import com.ulyssess.carrental.service.CarService;
 import com.ulyssess.carrental.service.ContractService;
-import com.ulyssess.carrental.service.ReservationService;
+
 
 @Controller
 public class ContractController {
@@ -27,8 +25,6 @@ public class ContractController {
 	@Autowired
 	private ContractService contractService;
 	
-	@Autowired
-	private ReservationService reservationService;
 	
 	@Autowired
 	private CarService carService;

@@ -14,7 +14,7 @@ public class HomeController {
 	@Autowired
 	private MarkService markService;
 	
-	@RequestMapping(value = "/")
+	@RequestMapping(value = {"CarRental","/"})
 	public String home(Model model){
 //		model.addAttribute("marks", markService.findAll());
 //		model.addAttribute("gearBoxs",GearBox.values());
