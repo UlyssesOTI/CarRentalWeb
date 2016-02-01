@@ -12,11 +12,11 @@ import com.ulyssess.carrental.dao.ClientDAO;
 import com.ulyssess.carrental.entity.Client;
 
 @Repository
-public class ClientDAOImpl extends EntityDAOAbstract<Client, Integer> implements ClientDAO {
+public class ClientDAOImpl extends EntityDAOAbstract<Client, String> implements ClientDAO {
 	
 	@PersistenceContext(unitName = "Primary")
 	private EntityManager entityManager;
-	
+	/*
 	@Transactional
 	public Client findByLogin(String login) {
 		return entityManager
@@ -37,6 +37,6 @@ public class ClientDAOImpl extends EntityDAOAbstract<Client, Integer> implements
 				setParameter("firstName", firstName).
 				getResultList();
 		return resList;
-	}
+	}*/
 
 }

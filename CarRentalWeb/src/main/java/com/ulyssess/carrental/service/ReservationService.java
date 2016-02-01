@@ -19,6 +19,6 @@ public interface ReservationService {
 	
 	public void caluclateSum(Reservation reservation);
 
-	public List<ReservationAllDTO> findClientReservations(String begin, String end, String id,  boolean onlyNew);
+	public List<ReservationAllDTO> findClientReservations(String begin, String end, String login,  boolean onlyNew);
 
 }

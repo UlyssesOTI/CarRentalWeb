@@ -21,7 +21,7 @@ public class ClientFormatter implements Formatter<Client>{
 	}
 
 	public Client parse(String text, Locale locale) throws ParseException {
-		return clientService.findById(text);
+		return clientService.findByLogin(text);
 	}
 
 }

@@ -17,8 +17,7 @@ import javax.persistence.OneToMany;
 public class Client {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private String login;
 	private String lastName;
 	private String firstName;
 	private String email;
@@ -34,12 +33,12 @@ public class Client {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
-		return id;
+	public void setLogin(String login) {
+		this.login = login;
 	}
-
-	public void setId(int id) {
-		this.id = id;
+	
+	public String getLogin() {
+		return login;
 	}
 
 	public String getLastName() {
@@ -100,7 +99,7 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return "Client [id=" + id + ", lastName=" + lastName + ", firstName=" + firstName + ", email=" + email
+		return "Client [login=" + login + ", lastName=" + lastName + ", firstName=" + firstName + ", email=" + email
 				+ ", password=" + password + ", regDate=" + regDate + ", rating=" + rating + "]";
 	}
 

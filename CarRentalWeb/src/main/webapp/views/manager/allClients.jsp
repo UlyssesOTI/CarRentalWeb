@@ -40,7 +40,7 @@
        			 			<td><h3></h3></td>
        			 			<td>
        			 				<form:form action="mClientContracts" method="post">
-									<input type="hidden" name="id" value="${client.id}">
+									<input type="hidden" name="id" value="${client.login}">
 									<button type="submit">All contracts</button>
 								</form:form>
 							</td>        		        			
@@ -78,13 +78,13 @@
 				
 				<div class="CarResultDetail">
 					<ul>
-						<li><h3>${client.id}</h3></li>
+						<li><h3>${client.login}</h3></li>
 						<li>Last name: ${client.lastName}</li>
 						<li>First Name: ${client.firstName}</li>
 						<li>Email: ${client.email}</li>
 						<li>regDate: ${client.regDate}</li>												
 						<form:form action="mClientContracts" method="post">
-							<input type="hidden" name="id" value="${client.id}">
+							<input type="hidden" name="id" value="${client.login}">
 							<button type="submit">All contracts</button>
 						</form:form>						
 					</ul>

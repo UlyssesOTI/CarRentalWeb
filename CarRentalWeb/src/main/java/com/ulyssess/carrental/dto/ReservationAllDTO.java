@@ -9,14 +9,14 @@ public class ReservationAllDTO {
 	private String beginDate;
 	private String endDate;
 	private String summ;
-	private Integer clientId;
+	private String clientLogin;
 	private String clientLastName;
 	private String clientFirstName;
 	private Integer modelId;
 	private String modelName;
 	private Integer contractId;
 		
-	public ReservationAllDTO(Integer id, String date, String beginDate, String endDate, String summ, Integer clientId,
+	public ReservationAllDTO(Integer id, String date, String beginDate, String endDate, String summ, String clientLogin,
 			String clientLastName, String clientFirstName, Integer modelId, String modelName, Integer contractId) {
 		super();
 		this.id = id;
@@ -24,7 +24,7 @@ public class ReservationAllDTO {
 		this.beginDate = beginDate;
 		this.endDate = endDate;
 		this.summ = summ;
-		this.clientId = clientId;
+		this.clientLogin = clientLogin;
 		this.clientLastName = clientLastName;
 		this.clientFirstName = clientFirstName;
 		this.modelId = modelId;
@@ -82,13 +82,13 @@ public class ReservationAllDTO {
 	}
 
 
-	public Integer getClientId() {
-		return clientId;
+	public String getClientId() {
+		return clientLogin;
 	}
 
 
-	public void setClientId(Integer clientId) {
-		this.clientId = clientId;
+	public void setClientId(String clientLogin) {
+		this.clientLogin = clientLogin;
 	}
 
 

@@ -31,7 +31,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 			throws UsernameNotFoundException {
 		Client client = null;
 		try {
-			client = clientDao.findByLogin(login);
+			client = clientDao.findByKey(Client.class, login);
 		} catch (NoResultException e) {
 			return null;
 		}
@@ -41,7 +41,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 		// User - клас зі Spring Security, об'єкт якого є поточним залогіненим користувачем.
 		// username може бути як і логін, та і id юзера в базі даних. Але id буде оптимальніше.
-		return new User(String.valueOf(client.getId()), client.getPassword(), authorities);
+		return new User(String.valueOf(client.getLogin()), client.getPassword(), authorities);
 	}
 
 }

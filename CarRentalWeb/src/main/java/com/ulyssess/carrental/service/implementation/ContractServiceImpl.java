@@ -34,7 +34,7 @@ public class ContractServiceImpl implements ContractService{
 	public Contract createNew(String reservID, String clientId) {
 		Contract contract = new Contract();
 		Reservation reservation = reservationService.findById(reservID);
-		Client client = clientService.findById(clientId);
+		Client client = clientService.findByLogin(clientId);
 		contract.setBeginDate(reservation.getBeginDate());
 		contract.setEndDate(reservation.getEndDate());
 		contract.setClient(client);
@@ -68,7 +68,7 @@ public class ContractServiceImpl implements ContractService{
 					contract.getBeginDate().toString(), 
 					contract.getEndDate().toString(),
 					contract.getPrice(),
-					"id: "+contract.getClient().getId()+" "
+					"id: "+contract.getClient().getLogin()+" "
 					+contract.getClient().getLastName()+" "
 					+contract.getClient().getFirstName(), 
 					"id: "+contract.getCar().getId()+" "+
@@ -79,10 +79,10 @@ public class ContractServiceImpl implements ContractService{
 	}
 
 	@Transactional
-	public Object findByClientDTO(String begin, String end, String id) {
+	public Object findByClientDTO(String begin, String end, String login) {
 		List<ContractDTO> contractDTOs = new ArrayList<ContractDTO>();
 		List<Client> clients = new ArrayList<Client>();
-		clients.add(clientService.findById(id));
+		clients.add(clientService.findByLogin(login));
 		List<Contract> allContract = contractDAO.findByClients(clients);
 		for (Contract contract : allContract) {
 			contractDTOs.add(new ContractDTO(
@@ -91,7 +91,7 @@ public class ContractServiceImpl implements ContractService{
 					contract.getBeginDate().toString(), 
 					contract.getEndDate().toString(),
 					contract.getPrice(),
-					"id: "+contract.getClient().getId()+" "
+					"id: "+contract.getClient().getLogin()+" "
 					+contract.getClient().getLastName()+" "
 					+contract.getClient().getFirstName(), 
 					"id: "+contract.getCar().getId()+" "+

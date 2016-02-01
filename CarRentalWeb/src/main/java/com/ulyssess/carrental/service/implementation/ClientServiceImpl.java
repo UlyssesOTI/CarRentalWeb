@@ -32,16 +32,11 @@ public class ClientServiceImpl implements ClientService{
 	}
 
 	@Transactional
-	public Client findById(String id) {
-		int clientId=0;
+	public Client findByLogin(String login) {
 		Client client = null;
-		try {
-			clientId = Integer.parseInt(id);
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		}
-		if(clientId != 0){
-			client = clientDAO.findByKey(Client.class, clientId);
+		
+		if(!login.isEmpty()){
+			client = clientDAO.findByKey(Client.class, login);
 		}
 		return client;
 	}

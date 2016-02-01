@@ -40,21 +40,21 @@ public class ReservationDAOImpl extends EntityDAOAbstract<Reservation, Integer> 
 	}
 
 	@Transactional
-	public List<Reservation> findClientReservations(Date begin, Date end, int id, boolean onlyNew) {
+	public List<Reservation> findClientReservations(Date begin, Date end, String login, boolean onlyNew) {
 		List<Reservation> resList = null;
 		
 		String query = "SELECT "
 				+ "		r "
 				+ "	FROM Reservation r "
 					+ "		WHERE (r.date BETWEEN :begin AND :end) "
-					+ "		AND (r.client.id = :id) ";
+					+ "		AND (r.client.login like :login) ";
 					if(onlyNew){
 						query = query+"			AND (r not in (SELECT c.reservation FROM Contract c)) ";
 					}
 		resList = entityManager.
 		createQuery(query,
 					Reservation.class).
-		setParameter("id", id).
+		setParameter("login", login).
 		setParameter("begin", begin).
 		setParameter("end", end).
 		getResultList();

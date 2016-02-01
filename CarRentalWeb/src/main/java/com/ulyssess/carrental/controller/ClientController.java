@@ -82,8 +82,11 @@ public class ClientController {
 		}
 		
 		int pages;
-		pages=models.size()/3+1;
-		
+		if(models.size()%3>0){
+			pages=models.size()/3+1;
+		}else{
+			pages=models.size()/3;
+		}
 		
 		List<ModelAllPageDTO> modelsPage = new ArrayList<ModelAllPageDTO>();
 		
@@ -188,7 +191,7 @@ public class ClientController {
 	
 	@RequestMapping(value="/cPersonalInfo")
 	public String clientPersonalInfo(Model model, Principal principal){
-		model.addAttribute("client", clientService.findById(principal.getName()));
+		model.addAttribute("client", clientService.findByLogin(principal.getName()));
 		return "client-edit";
 	}
 	

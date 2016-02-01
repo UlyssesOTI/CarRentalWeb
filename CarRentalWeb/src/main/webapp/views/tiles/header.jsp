@@ -19,7 +19,7 @@
 	
 		<div class="log">
 			<sec:authorize access="isAuthenticated()">
-				Hello, 
+				Signed in as,  <sec:authentication property="name"/>
 				<a href="logout">Logout</a>
 			</sec:authorize>
 			<sec:authorize access="isAnonymous()">

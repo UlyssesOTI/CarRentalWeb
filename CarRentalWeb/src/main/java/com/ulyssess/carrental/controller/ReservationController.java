@@ -42,7 +42,7 @@ public class ReservationController {
 		reservation.setBeginDate(DateParse.parse(begin));
 		reservation.setEndDate(DateParse.parse(end));
 		reservation.setModel(modelService.findById(id));
-		reservation.setClient(clientService.findById(principal.getName()));
+		reservation.setClient(clientService.findByLogin(principal.getName()));
 		reservationService.caluclateSum(reservation);
 		model.addAttribute("reservation", reservation);
 		model.addAttribute("begin", begin);

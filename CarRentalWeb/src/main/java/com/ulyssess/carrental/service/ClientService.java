@@ -6,7 +6,7 @@ import com.ulyssess.carrental.entity.Client;
 
 public interface ClientService {
 	
-	public Client findById(String id);
+	public Client findByLogin(String login);
 	
 	public void add(Client client);
 	

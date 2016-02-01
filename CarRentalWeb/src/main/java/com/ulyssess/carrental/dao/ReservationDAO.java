@@ -9,6 +9,6 @@ public interface ReservationDAO extends EntityDAO<Reservation, Integer>{
 	
 	public List<Reservation> findReservations(Date begin, Date end, boolean onlyNew);
 
-	public List<Reservation> findClientReservations(Date begin, Date end, int id, boolean onlyNew);
+	public List<Reservation> findClientReservations(Date begin, Date end, String login, boolean onlyNew);
 
 }

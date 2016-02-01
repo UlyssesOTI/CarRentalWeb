@@ -40,7 +40,7 @@
         				<tr class="success">
        			 			<td><h3>Client: </h3></td>
        			 			<td><form:select path="client"> 
-						<form:option value="${reservation.client.id}" label="${reservation.client.lastName} ${reservation.client.firstName}" />
+						<form:option value="${reservation.client.login}" label="${reservation.client.lastName} ${reservation.client.firstName}" />
 					  </form:select></td>        		        			
         				</tr>
         				

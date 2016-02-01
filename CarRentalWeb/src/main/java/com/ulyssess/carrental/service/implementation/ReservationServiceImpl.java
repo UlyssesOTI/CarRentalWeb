@@ -43,7 +43,7 @@ public class ReservationServiceImpl implements ReservationService {
 					reservation.getBeginDate().toString(), 
 					reservation.getEndDate().toString(), 
 					reservation.getSumm().toString(), 
-					reservation.getClient().getId(), 
+					reservation.getClient().getLogin(), 
 					reservation.getClient().getLastName(), 
 					reservation.getClient().getFirstName(), 
 					reservation.getModel().getId(), 
@@ -79,11 +79,11 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	@Transactional
-	public List<ReservationAllDTO> findClientReservations(String begin, String end, String id, boolean onlyNew ) {
+	public List<ReservationAllDTO> findClientReservations(String begin, String end, String login, boolean onlyNew ) {
 		List<ReservationAllDTO> resList = new ArrayList<ReservationAllDTO>();
 		List<Reservation> list = new ArrayList<Reservation>();
 		
-		list = reservationDAO.findClientReservations(DateParse.parse(begin), DateParse.parse(end),Integer.parseInt(id),onlyNew);
+		list = reservationDAO.findClientReservations(DateParse.parse(begin), DateParse.parse(end),login,onlyNew);
 		for (Reservation reservation : list) {
 			resList.add(new ReservationAllDTO(	
 					reservation.getId(), 
@@ -91,7 +91,7 @@ public class ReservationServiceImpl implements ReservationService {
 					reservation.getBeginDate().toString(), 
 					reservation.getEndDate().toString(), 
 					reservation.getSumm().toString(), 
-					reservation.getClient().getId(), 
+					reservation.getClient().getLogin(), 
 					reservation.getClient().getLastName(), 
 					reservation.getClient().getFirstName(), 
 					reservation.getModel().getId(), 

@@ -26,8 +26,12 @@
        			 			<td><h5><form:input path="firstName" /></h5></td>        		        			
         				</tr>
         				<tr class="success">
-       			 			<td><h3>login: </h3></td>
+       			 			<td><h3>Email: </h3></td>
        			 			<td><h5><form:input path="email" /></h5></td>        		        			
+        				</tr>
+        				<tr class="success">
+       			 			<td><h3>login: </h3></td>
+       			 			<td><h5><form:input path="login" /></h5></td>        		        			
         				</tr>
         				<tr class="success">
        			 			<td><h3>Password: </h3></td>
