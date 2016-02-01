@@ -4,6 +4,7 @@ import org.hibernate.validator.internal.metadata.facets.Validatable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import com.ulyssess.carrental.entity.Car;
@@ -23,9 +24,10 @@ public class ClientValidator implements Validator {
 
 	public void validate(Object target, Errors errors) {
 		Client client = (Client) target;
-		if(clientService.findByLogin(client.getLogin())!=null){
-			errors.rejectValue("login", "");
-		}
+		
+		
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "login", "login.required");
+		
 	}
 
 }

@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +27,7 @@ import com.ulyssess.carrental.enums.GearBox;
 import com.ulyssess.carrental.service.ClientService;
 import com.ulyssess.carrental.service.MarkService;
 import com.ulyssess.carrental.service.ModelService;
+import com.ulyssess.carrental.validator.ClientValidator;
 
 @Controller
 public class ClientController {
@@ -36,6 +40,14 @@ public class ClientController {
 	
 	@Autowired
 	private ClientService clientService;
+	
+	@Autowired
+	private ClientValidator clientValidator; 
+	
+	@InitBinder
+    private void initBinder(WebDataBinder binder) {
+        binder.setValidator(clientValidator);
+    }
 	
 	@RequestMapping(value = "/allClientsMain")
 	public String clientMain(){
@@ -162,14 +174,14 @@ public class ClientController {
 	}
 	
 	@RequestMapping(value = "/newClient", method=RequestMethod.POST)
-	public String newClient(@ModelAttribute("client")  @Valid Client client,
+	public String newClient(@ModelAttribute("client") @Validated  Client client,
 			@RequestParam(value="operation") String operation,
 	 		BindingResult bindingResult,
 	 		Model model){
 			
 		String returnVal = "redirect:/loginpage";
 		if(bindingResult.hasErrors()){
-			returnVal = "";
+			returnVal = "client-new";
 		}else{
 			if(operation.equals("add")){
 				client.setRegDate(new Date());

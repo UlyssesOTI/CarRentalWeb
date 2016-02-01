@@ -5,13 +5,14 @@
 
 
 <div class="panel">
-	<form:form action="newClient" method="post" modelAttribute="client" enctype="multipart/form-data" >
+	<form:form action="newClient" method="post" modelAttribute="client"  >
 	
 	
 		<table class="tableClient">
 					<thead>
       					<tr>
   			      			<th></th>     			  			
+  			      			<th></th>
   			      			<th></th>
        					</tr>
     				</thead>
@@ -31,7 +32,8 @@
         				</tr>
         				<tr class="success">
        			 			<td><h3>login: </h3></td>
-       			 			<td><h5><form:input path="login" /></h5></td>        		        			
+       			 			<td><h5><form:input path="login" /></h5></td>    
+       			 			<td><form:errors path="login"  /></td>    		        			
         				</tr>
         				<tr class="success">
        			 			<td><h3>Password: </h3></td>
