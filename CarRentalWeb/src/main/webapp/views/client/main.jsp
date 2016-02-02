@@ -133,24 +133,10 @@
 								<input type="hidden" name="id" value="${model.id}">
 								
 				<div class="CarResult" onclick="formSubmit('frm${model.id}')" style="cursor: pointer;">
-				<div class="CarResultDayPrice">
-					<table class="table">
-					<thead>
-      					<tr>
-  			      			<th><h3>Price for ${days} days:</h3></th>     			  			
-       					</tr>
-    				</thead>
-    				<tbody>
-      			
-       			 		<tr class="success">
-       			 			<td><h3>${days*model.dayPrice}</h3></td>        			
-        				</tr>
-        			</tbody>
-					</table>
+				<div class="pricing">					
+					<p class="duration">Price for ${days} day(s):</p>		  			       				
+       			 	<p class="now">${days*model.dayPrice}</p>        			      			
 				</div>
-					
-					
-
 					<div class="CarResultDetail">
 					
 						<h4 class="headerCarList">
@@ -159,11 +145,11 @@
 						
 
 						
-						<table class="table">
+						<table class="tableModeSpec">
    			<thead>
       			<tr>
-  			      	<th></th>
-     			  	<th></th>
+  			      	<th>Option</th>
+     			  	<th>Description</th>
        			</tr>
     		</thead>
     		<tbody>
