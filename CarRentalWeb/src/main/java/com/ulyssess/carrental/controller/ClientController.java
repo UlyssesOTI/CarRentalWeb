@@ -44,7 +44,7 @@ public class ClientController {
 	@Autowired
 	private ClientValidator clientValidator; 
 	
-	@InitBinder
+	@InitBinder("client")
     private void initBinder(WebDataBinder binder) {
         binder.setValidator(clientValidator);
     }
@@ -67,9 +67,7 @@ public class ClientController {
 				@RequestParam(value = "minPrice", defaultValue="0") String minPrice,
 				@RequestParam(value = "maxPrice", defaultValue="99999") String maxPrice,
 				@PathVariable String pageIndex){
-		
-		
-		
+				
 		if(begin.isEmpty()){
 			begin = DateParse.format(new Date());
 		}
@@ -77,12 +75,6 @@ public class ClientController {
 		if(end.isEmpty()){
 			end = DateParse.format(new Date());
 		}		
-		
-		
-		
-		
-		
-		
 		
 		int page;
 		
@@ -113,43 +105,6 @@ public class ClientController {
 		}		
 		
 		
-		model.addAttribute("pages", pages);
-		
-		model.addAttribute("models", modelsPage);
-		model.addAttribute("begin", begin);
-		model.addAttribute("end", end);
-		model.addAttribute("marks", markService.findAll());
-		model.addAttribute("markId", markId);
-		model.addAttribute("gearBoxs",GearBox.values());
-		model.addAttribute("gearBoxId",gearBoxId);
-		model.addAttribute("minPrice",minPrice);
-		model.addAttribute("maxPrice",maxPrice);
-		model.addAttribute("days",DateParse.getDateDiff(DateParse.parse(begin), DateParse.parse(end), TimeUnit.DAYS));
-		return "client-main";
-	}
-	
-	/*@RequestMapping(value="/pagesAvailableModels", method = {RequestMethod.GET, RequestMethod.POST})
-	public String pagesAvailableModels(Model model, 
-			@RequestParam(value = "begin" , defaultValue=""  )  String begin, 
-			@RequestParam(value = "end", defaultValue="") String end,
-			@RequestParam(value = "mark", defaultValue="0") String markId,
-			@RequestParam(value = "gearBox", defaultValue="-1") String gearBoxId,
-			@RequestParam(value = "minPrice", defaultValue="0") String minPrice,
-			@RequestParam(value = "maxPrice", defaultValue="99999") String maxPrice,
-			@RequestParam(value = "page", defaultValue="1") String pageString){
-		
-		
-		int page = Integer.parseInt(pageString);
-		int pages;
-		pages=models.size()/4;
-		
-		List<ModelAllPageDTO> modelsPage = new ArrayList<ModelAllPageDTO>();
-		
-		for (int i = models.size()/4*(page-1); i < models.size()/4*(page); i++) {
-			modelsPage.add(models.get(i));
-		}		
-		
-				
 		model.addAttribute("pages", pages);		
 		model.addAttribute("models", modelsPage);
 		model.addAttribute("begin", begin);
@@ -162,7 +117,7 @@ public class ClientController {
 		model.addAttribute("maxPrice",maxPrice);
 		model.addAttribute("days",DateParse.getDateDiff(DateParse.parse(begin), DateParse.parse(end), TimeUnit.DAYS));
 		return "client-main";
-	}*/
+	}
 	
 	
 	
@@ -174,13 +129,14 @@ public class ClientController {
 	}
 	
 	@RequestMapping(value = "/newClient", method=RequestMethod.POST)
-	public String newClient(@ModelAttribute("client") @Validated  Client client,
-			@RequestParam(value="operation") String operation,
-	 		BindingResult bindingResult,
+	public String newClient(@RequestParam(value="operation") String operation,
+			@ModelAttribute("client") @Valid Client client,
+			BindingResult result,
 	 		Model model){
-			
+		
 		String returnVal = "redirect:/loginpage";
-		if(bindingResult.hasErrors()){
+		if(result.hasErrors()){
+			model.addAttribute("client", client);
 			returnVal = "client-new";
 		}else{
 			if(operation.equals("add")){

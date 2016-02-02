@@ -5,8 +5,7 @@
 
 
 <div class="panel">
-	<form:form action="newClient" method="post" modelAttribute="client"  >
-	
+	<form:form action="newClient" method="post" modelAttribute="client" enctype="multipart/form-data" >
 	
 		<table class="tableClient">
 					<thead>
@@ -45,20 +44,6 @@
        			 			<td><button type="submit" name="operation" value="add">Save</button></td>        		        			
         				</tr>
         			</tbody>
-					</table>
-	
-	
-	
-	
-	
-		<%-- <ul>
-			
-			<li>lastName: <form:input path="lastName" /></li>
-			<li>Name: <form:input path="firstName" /></li>
-			<li>email: <form:input path="email" /></li>
-			<li>password: <form:input path="password" /></li>
-			
-		</ul> --%>
-		
+					</table>		
 	</form:form>
 </div>

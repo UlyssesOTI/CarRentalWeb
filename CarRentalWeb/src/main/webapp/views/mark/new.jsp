@@ -9,13 +9,15 @@
       					<tr>
   			      			<th></th>     			  			
   			      			<th></th>
+  			      			<th></th>
        					</tr>
     				</thead>
     				<tbody class="tbodyClient">
       			
        			 		<tr class="success">
        			 			<td><h3>Mark name: </h3></td>
-       			 			<td><h5> <form:input path="markName" /></h5></td>        		        			
+       			 			<td><h5> <form:input path="markName" /></h5></td>        
+       			 			<td><form:errors path="markName"></form:errors>		        			
         				</tr>
         				<tr class="success">
        			 			<td></td>

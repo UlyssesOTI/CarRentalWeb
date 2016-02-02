@@ -4,20 +4,21 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.ulyssess.carrental.entity.Car;
+import com.ulyssess.carrental.entity.Mark;
 
 @Component
-public class CarValidator implements Validator {
+public class MarkValidator implements Validator{
 
 	public boolean supports(Class<?> clazz) {
-		return Car.class.equals(clazz);
+		return Mark.class.equals(clazz);
 	}
 
 	public void validate(Object target, Errors errors) {
-		Car car = (Car) target;
-		if(car.getRegNumber().isEmpty()){
-			errors.rejectValue("regNumber", "regNumber.required");
+		Mark mark = (Mark) target;
+		if(mark.getMarkName().isEmpty()){
+			errors.reject("markName", "markName.required");
 		}
+		
 	}
-
+	
 }

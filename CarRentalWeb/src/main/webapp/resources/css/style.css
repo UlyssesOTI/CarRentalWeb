@@ -58,7 +58,7 @@
 .panel{
     position: relative;
     overflow: auto;
-    width: 1200px;
+    width:75%;
     margin-left:auto;
     margin-right:auto;
     background-color: rgba(219,203,187,0.5);

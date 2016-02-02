@@ -89,7 +89,9 @@ public class CarController {
 		
 		String returnVal = "redirect:/mShowCars";
 		if (result.hasErrors()) {
-			returnVal = "redirect:/mCreateCar";
+			model.addAttribute("colors", Color.values());
+			model.addAttribute("models", modelService.findAll());
+			returnVal = "car-new";
 		} else {			
 			car.setRegDate(new Date());
 			carService.add(car);
