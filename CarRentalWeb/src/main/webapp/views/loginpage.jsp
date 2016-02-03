@@ -9,12 +9,10 @@
 <body>
 <div class="panel">
 <form action="loginprocessing" method="post">
+
+	<div class="login">
 	<table class="tableClient">
-		<thead>
-      					<tr>
-  			      			<th></th>     			  			
-  			      			<th></th>
-       					</tr>
+		<thead>      					
     				</thead>
     				<tbody class="tbodyClient">
       			
@@ -34,10 +32,11 @@
         				
         				<tr class="success">
        			 			<td></td>
-       			 			<td><a href="signIn">Sign up</a></td>        		        			
+       			 			<td><a class="link" href="signIn">Sign up</a></td>        		        			
         				</tr>
 	</tbody>
 	</table>
+	</div>
 </form>
 	<!-- <form action="loginprocessing" method="post">
 		Login <input type="text" name="username">

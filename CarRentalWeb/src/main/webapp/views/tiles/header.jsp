@@ -20,10 +20,10 @@
 		<div class="log">
 			<sec:authorize access="isAuthenticated()">
 				Signed in as,  <sec:authentication property="name"/>
-				<a href="logout">Logout</a>
+				<a class="link" href="logout">Logout</a>
 			</sec:authorize>
 			<sec:authorize access="isAnonymous()">
-				<a href="loginpage">Login</a>
+				<a class="link" href="loginpage">Login</a>
 			</sec:authorize>
 			<sec:authorize access="hasRole('ADMIN')">
 				<a href="managerMain">Manager main page</a>

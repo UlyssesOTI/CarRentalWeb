@@ -9,36 +9,33 @@
 			<fmt:formatDate value="${reservation.beginDate}" pattern="MM/dd/yyyy" var="fbeginDate"/>
 			<fmt:formatDate value="${reservation.endDate}" pattern="MM/dd/yyyy" var="fendDate"/>
 	
+		<h3>New reservation</h3>
+	
 		<table class="tableClient">
-					<thead>
-      					<tr>
-  			      			<th></th>     			  			
-  			      			<th></th>
-       					</tr>
-    				</thead>
+					
     				<tbody class="tbodyClient">
       			
        			 		<tr class="success">
-       			 			<td><h3>Begin date:</h3></td>
+       			 			<td><h4>Begin date:</h4></td>
        			 			<td><form:input path="beginDate" value ="${fbeginDate}" readonly="true"/> </td>        		        			
         				</tr>
         				<tr class="success">
-       			 			<td><h3>End date: </h3></td>
+       			 			<td><h4>End date: </h4></td>
        			 			<td><form:input path="endDate" value ="${fendDate}" readonly="true"/></td>        		        			
         				</tr>
         				<tr class="success">
-       			 			<td><h3>Sum: </h3></td>
+       			 			<td><h4>Sum: </h4></td>
        			 			<td> <form:input path="summ" readonly="true"/></td>        		        			
         				</tr>
         				<tr class="success">
-       			 			<td><h3>Model: </h3></td>
+       			 			<td><h4>Model: </h4></td>
        			 			<td><form:select path="model"> 
 							<option value="${reservation.model.id}"> ${reservation.model.modelName}</option>
 					   </form:select></td>        		        			
         				</tr>
         				
         				<tr class="success">
-       			 			<td><h3>Client: </h3></td>
+       			 			<td><h4>Client: </h4></td>
        			 			<td><form:select path="client"> 
 						<form:option value="${reservation.client.login}" label="${reservation.client.lastName} ${reservation.client.firstName}" />
 					  </form:select></td>        		        			
@@ -46,7 +43,7 @@
         				
         				<tr >
        			 			<td></td>
-       			 			<td><button type="submit" name="operation" value="add">Save</button></td>        		        			
+       			 			<td><button type="submit" name="operation" value="add">Confirm reservation</button></td>        		        			
         				</tr>
         			</tbody>
 					</table>

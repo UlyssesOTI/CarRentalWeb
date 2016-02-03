@@ -8,24 +8,19 @@
 	
 	
 		<table class="tableClient">
-					<thead>
-      					<tr>
-  			      			<th></th>     			  			
-  			      			<th></th>
-       					</tr>
-    				</thead>
+					
     				<tbody class="tbodyClient">
       			
        			 		<tr class="success">
-       			 			<td><h3>Last name: </h3></td>
+       			 			<td><h4>Last name: </h4></td>
        			 			<td><h5><form:input path="lastName" /></h5></td>        		        			
         				</tr>
         				<tr class="success">
-       			 			<td><h3>First name: </h3></td>
+       			 			<td><h4>First name: </h4></td>
        			 			<td><h5><form:input path="firstName" /></h5></td>        		        			
         				</tr>
         				<tr class="success">
-       			 			<td><h3>login: </h3></td>
+       			 			<td><h4>login: </h4></td>
        			 			<td><h5><form:input path="email" /></h5></td>        		        			
         				</tr>
         				
