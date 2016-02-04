@@ -59,6 +59,16 @@
        			 			<td><h5> ${car.dayPrice}</h5></td>        		        			
         				</tr>
         				
+        				<tr class="success">
+       			 			<td></td>
+       			 			<td>
+       			 				<form:form action="mEditCar" method="post">
+									<input type="hidden" name="id" value="${car.id}">
+									<button type="submit">Edit</button>
+								</form:form>	
+							</td>        		        			
+        				</tr>
+        				
         				
         			</tbody>
 					</table>
@@ -68,39 +78,5 @@
 
 
 	
-<%-- 
-	<div class="CarList">
-		<c:forEach var="car" items="${cars}">
-		
-			<div class="CarResult">
-				
-				<div class="CarResultDetail">
-				
-					<h4 class="headerCarList">
-						<img  src="data:image/jpeg;base64,${car.image}" height="150" width="250"/>
-					</h4>
-					<ul>
-						<li><h3>${car.markName}</h3></li>
-						<li><h3>${car.modelName}</h3></li>
-						<li>Reg number: ${car.regNumber}</li>
-						<li>Reg date: ${car.regDate}</li>
-						<li>Seats: ${car.seats}</li>
-						<li>Gearbox: ${car.gearBox}</li>
-						<li>Color: ${car.color}</li>
-						<li>Day price: ${car.dayPrice}</li>
-						
-						
-						
-					</ul>
-					
-				</div>
-				
-			</div>		
-			
-		</c:forEach>
-	
-		
-	</div> --%>
-	
-	
+
 		

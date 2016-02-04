@@ -24,11 +24,16 @@
 .tableClient{
 	display: block;
     text-align: left;
-    width: 400px;
+    width: 100%;
     max-width: 100%;
     margin-bottom: 10px;
    
 }
+
+.pagination{
+	display: block;
+}
+
 
 .tbodyClient{
 	border: 2px solid #cdcdcd;
@@ -115,6 +120,10 @@
     font-size: 100%;
 }
 
+.error{
+	color: red;
+}
+
 .body{
 	width: 100%;
 	position: relative;
@@ -138,6 +147,13 @@
     font: normal 12px Arial,Helvetica,sans-serif;
 }
 
+.paginButton{
+	
+	margin-left: auto;
+    margin-right: auto;
+    width: 50px; 
+}
+
 .headerCarList{
 	width: 270px;
     padding: 0 10px 10px 0;
@@ -147,6 +163,15 @@
 }
 
 .CarResult{	
+	overflow: hidden;
+    clear: both;
+    margin-bottom: 10px;
+     margin-top: 10px;
+    border: 2px solid #cdcdcd;
+    display: block;
+}
+
+.managerCarResult{	
 	overflow: hidden;
     clear: both;
     margin-bottom: 10px;
@@ -226,6 +251,13 @@ select{
 	width: 485px;
     padding: 15px 10px 0 5px;
     float: right;
+   	display:block;
+    border-left: 2px solid #cdcdcd;
+    border-right: 0;
+}
+.CarResultDetailManager{
+	width: 485px;
+    padding: 15px 10px 0 5px;
    	display:block;
     border-left: 2px solid #cdcdcd;
     border-right: 0;

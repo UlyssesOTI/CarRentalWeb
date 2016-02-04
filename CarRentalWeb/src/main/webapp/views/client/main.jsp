@@ -100,24 +100,25 @@
 					</td>
 					<td><input type="text" name="minPrice" value="${minPrice}"></td>
 					<td><input type="text" name="maxPrice" value="${maxPrice}"></td>
+					<td><button class="paginButton"  onclick="formFilterSubmit('frmFilter','action','AvailableModels')" value="Submit">Find</button></td>
       			</tr>
           	</tbody>
   		</table>
   		
   		
-  		<button  onclick="formFilterSubmit('frmFilter','action','AvailableModels')" value="Submit">Submit</button>
+  		
   		
   		
   		
   		<div class="pagination">
-    		<ul>
+    		
             	<c:forEach var="i" begin="${1}" end="${pages}">           
-            		<button  onclick="formFilterSubmit('frmFilter','action','AvailableModels${i}')" value="${i}">${i}</button>
+            		<button class="paginButton" onclick="formFilterSubmit('frmFilter','action','AvailableModels${i}')" value="${i}">${i}</button>
             		
                 	<%-- <li class="active"><a href="${pageUrl}/${i}"><c:out value="${i}" /></a></li> --%>
 		       </c:forEach>
       
-    		</ul>
+    		
 		</div>
   		
   		
@@ -177,19 +178,7 @@
   		</table>
   		
 							
-						<%-- <ul>
-							<li><h3>${model.markName}</h3></li>
-							<li><h3>${model.modelName}</h3></li>
-							<li>: ${model.seats}</li>
-							<li>Gear box: ${model.gearBox}</li>
-							<li>Day price: ${model.dayPrice}</li>	
-							<form:form action="clientReserveModel" method="post">
-								<input type="hidden" name="begin" value="${begin}">
-								<input type="hidden" name="end" value="${end}">
-								<input type="hidden" name="id" value="${model.id}">
-								<button type="submit">Reserve</button>
-							</form:form>						
-						</ul> --%>
+						
 						
 					</div>
 					

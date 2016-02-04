@@ -25,6 +25,11 @@ public class ClientServiceImpl implements ClientService{
 		client.setPassword(encoder.encode(client.getPassword()));
 		clientDAO.add(client);
 	}
+	
+	@Transactional
+	public void update(Client client) {
+		clientDAO.update(client);
+	}
 
 	@Transactional
 	public List<Client> findAll() {

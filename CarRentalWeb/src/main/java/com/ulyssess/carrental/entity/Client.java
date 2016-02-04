@@ -23,7 +23,7 @@ public class Client {
 	private String email;
 	private String password;
 	private Date regDate;
-	private int rating;
+	private double rating;
 	@OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY, mappedBy = "client")
 	private List<Contract> contracts;
 	@OneToMany(cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY, mappedBy = "client")
@@ -81,11 +81,11 @@ public class Client {
 		this.regDate = regDate;
 	}
 
-	public int getRating() {
+	public Double getRating() {
 		return rating;
 	}
 
-	public void setRating(int rating) {
+	public void setRating(Double rating) {
 		this.rating = rating;
 	}
 

@@ -51,24 +51,9 @@ public class MarkController {
 		model.addAttribute("mark",mark);
 		return "mark-edit";
 	}
-
-//	@RequestMapping(value="/editMark")
-//	private String editModel(Model model,@RequestParam(value="id") String id){	
-//		Mark mark = markService.findById(id);
-//		String operation = "update";
-//		if(mark==null){
-//			mark = new Mark();
-//			operation = "add";
-//		}
-//		model.addAttribute("mark",mark);
-//		model.addAttribute("operation",operation);
-//		return "mark-edit";
-//	}
-
 	
 	@RequestMapping(value="/mSaveMark")
-	private String saveMark(
-					@RequestParam(value="operation") String operation,
+	private String saveMark(					
 					@ModelAttribute(value="mark") @Valid Mark mark,					
 					BindingResult bindingResult, 
 					Model model ){
@@ -76,14 +61,24 @@ public class MarkController {
 		String returnVal = "redirect:/mShowMarks";
 		if(bindingResult.hasErrors()){
 			returnVal = "mark-new";
-		}else{
-			if(operation.equals("add")){
-				markService.add(mark);
-			}else if(operation.equals("update")){
-				markService.update(mark);
-			}else if(operation.equals("remove")){
-				
-			}
+		}else{		
+			markService.add(mark);			
+		}
+		return returnVal;
+	}
+	
+	
+	@RequestMapping(value="/mUpdateMark")
+	private String updateMark(		
+					@ModelAttribute(value="mark") @Valid Mark mark,					
+					BindingResult bindingResult, 
+					Model model ){
+		
+		String returnVal = "redirect:/mShowMarks";
+		if(bindingResult.hasErrors()){
+			returnVal = "mark-edit";
+		}else{			
+			markService.update(mark);			
 		}
 		return returnVal;
 	}

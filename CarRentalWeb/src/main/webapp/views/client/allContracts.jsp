@@ -8,9 +8,17 @@
 	
 <div class="panel">
 	<div class="DocumentList">
+	<h3 align="center" >My Contracts:</h3>
 		<c:forEach var="contract" items="${contracts}">
 		
+		
 			<table class="tableClient">
+					<thead>
+      					<tr>
+  			      			<th>Option</th>     			  			
+  			      			<th>Value</th>
+       					</tr>
+    				</thead>
 					
     				<tbody class="tbodyClient">
       			

@@ -20,7 +20,7 @@ public class Reservation {
 	private Date date;
 	private Date beginDate;
 	private Date endDate;
-	private Double summ;
+	private double summ;
 	@ManyToOne(cascade={CascadeType.MERGE}, fetch = FetchType.LAZY)
 	private Client client;
 	@ManyToOne(cascade={CascadeType.MERGE}, fetch = FetchType.LAZY)

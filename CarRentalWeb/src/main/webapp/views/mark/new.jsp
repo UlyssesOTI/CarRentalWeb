@@ -7,9 +7,8 @@
 	<table class="tableClient">
 		<thead>
       					<tr>
-  			      			<th></th>     			  			
-  			      			<th></th>
-  			      			<th></th>
+  			      			<th>Property</th>     			  			
+  			      			<th>Value</th>  			      			
        					</tr>
     				</thead>
     				<tbody class="tbodyClient">
@@ -17,7 +16,7 @@
        			 		<tr class="success">
        			 			<td><h3>Mark name: </h3></td>
        			 			<td><h5> <form:input path="markName" /></h5></td>        
-       			 			<td><form:errors path="markName"  /></td>		        			
+       			 			<td><form:errors class="error" path="markName"  /></td>		        			
         				</tr>
         				<tr class="success">
        			 			<td></td>
@@ -25,10 +24,6 @@
         				</tr>
 	</tbody>
 	</table>
-	
-	<%-- 	<ul>
-			<li>Mark name: <form:input path="markName" /></li>		
-		</ul>
-		<button type="submit" name="operation" value="add">Save</button> --%>
+
 	</form:form>
 </div>

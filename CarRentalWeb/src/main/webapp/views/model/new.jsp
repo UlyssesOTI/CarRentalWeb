@@ -10,15 +10,16 @@
 	<table class="tableClient">
 		<thead>
       					<tr>
-  			      			<th></th>     			  			
-  			      			<th></th>
+  			      			<th>Property</th>     			  			
+  			      			<th>Value</th>
        					</tr>
     				</thead>
     				<tbody class="tbodyClient">
       			
        			 		<tr class="success">
        			 			<td><h3>Name: </h3></td>
-       			 			<td><h5> <form:input path="modelName" /></h5></td>        		        			
+       			 			<td><h5> <form:input path="modelName" /></h5></td>     
+       			 			<td><form:errors class="error" path="modelName"  /></td>		   		        			
         				</tr>
         				
         				<tr class="success">
@@ -30,7 +31,8 @@
         				
         				<tr class="success">
        			 			<td><h3>Seats: </h3></td>
-       			 			<td><h5> <form:input path="seats" /></h5></td>        		        			
+       			 			<td><h5> <form:input path="seats" /></h5></td>    
+       			 			<td><form:errors class="error" path="seats"  /></td>	    		        			
         				</tr>
         				
         				
@@ -46,7 +48,8 @@
         				
         				<tr class="success">
        			 			<td><h3>Day price:</h3></td>
-       			 			<td><h5> <form:input path="dayPrice" /></h5></td>        		        			
+       			 			<td><h5> <form:input path="dayPrice" /></h5></td>
+       			 			<td><form:errors class="error" path="dayPrice"  /></td>	        		        			
         				</tr>
         				
         				<tr class="success">

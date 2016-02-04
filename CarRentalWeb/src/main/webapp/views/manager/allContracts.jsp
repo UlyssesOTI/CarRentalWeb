@@ -11,8 +11,8 @@
 			<table class="tableClient">
 					<thead>
       					<tr>
-  			      			<th></th>     			  			
-  			      			<th></th>
+  			      			<th>Option</th>     			  			
+  			      			<th>Value</th>
        					</tr>
     				</thead>
     				<tbody class="tbodyClient">
@@ -38,8 +38,8 @@
        			 			<td><h5>${contract.carInfo}</h5></td>        		        			
         				</tr>
         				<tr class="success">
-       			 			<td><h3>Reservation info: </h3></td>
-       			 			<td><h5>${contract.reservationInfo}</h5></td>        		        			
+       			 			<td><h3>Client : </h3></td>
+       			 			<td><h5>${contract.clientInfo}</h5></td>        		        			
         				</tr>
         				
         				<tr class="success">

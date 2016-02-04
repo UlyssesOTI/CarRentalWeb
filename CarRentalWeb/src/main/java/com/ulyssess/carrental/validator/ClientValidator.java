@@ -27,6 +27,15 @@ public class ClientValidator implements Validator {
 			errors.rejectValue("login", "login.alreadyExist");
 		}
 		
+		if(client.getLogin().compareTo("admin")==0){
+			errors.rejectValue("login", "login.alreadyExist");
+		}
+		
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "lastName.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "firstName.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "email.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "login", "login.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "password.required");
 		
 		
 	}

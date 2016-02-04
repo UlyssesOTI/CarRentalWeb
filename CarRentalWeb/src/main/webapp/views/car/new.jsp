@@ -11,9 +11,8 @@
 		<table class="tableClient">
 				<thead>
       					<tr>
-  			      			<th></th>     			  			
-  			      			<th></th>
-  			      			<th></th>
+  			      			<th>Option</th>     			  			
+  			      			<th>Value</th>  			      			
        					</tr>
     				</thead>
     				<tbody class="tbodyClient">
@@ -21,7 +20,7 @@
        			 		<tr class="success">
        			 			<td><h3>Registration Number:</h3></td>
        			 			<td><h5><form:input path="regNumber" /></h5></td>
-       			 			<td><form:errors path="regNumber"  /></td>             		        			
+       			 			<td><form:errors class="error" path="regNumber"  /></td>             		        			
         				</tr>
         				
         				<tr class="success">

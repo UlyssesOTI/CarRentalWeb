@@ -53,9 +53,21 @@ public class ContractServiceImpl implements ContractService{
 	@Transactional
 	public void update(Contract contract) {
 		contractDAO.update(contract);
-		
+		List<Client> clientList = new ArrayList<Client>();
+		clientList.add(contract.getClient());
+		List<Contract> contractList = contractDAO.findByClients(clientList);
+		double sum = 0.;
+		double count = 0.; 
+		for (Contract contract2 : contractList) {
+			sum += contract2.getPrice();
+			count+=((contract2.getEndDate().getTime()-contract2.getBeginDate().getTime())/1000/60/60/24+1);
+		}
+		Client client =contract.getClient(); 
+		client.setRating(sum/count);
+		clientService.update(client);
 	}
 
+	
 	@Transactional
 	public List<ContractDTO> findAllDTO() {
 		List<ContractDTO> contractDTOs = new ArrayList<ContractDTO>();

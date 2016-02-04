@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.ulyssess.carrental.dto.CarAllPageDTO;
-import com.ulyssess.carrental.entity.Car;
 
 public class AjaxResponseBodyCars {
 	

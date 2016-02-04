@@ -11,5 +11,7 @@ public interface ClientService {
 	public void add(Client client);
 	
 	public List<Client> findAll();
+
+	public void update(Client client);
 	
 }

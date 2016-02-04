@@ -13,8 +13,8 @@
 			<table class="tableClient">
 					<thead>
       					<tr>
-  			      			<th></th>     			  			
-  			      			<th></th>
+  			      			<th>Option</th>     			  			
+  			      			<th>Value</th>
        					</tr>
     				</thead>
     				<tbody class="tbodyClient">
@@ -34,6 +34,10 @@
         				<tr class="success">
        			 			<td><h3>Registration Date: </h3></td>
        			 			<td><h5>${client.regDate}</h5></td>        		        			
+        				</tr>
+        				<tr class="success">
+       			 			<td><h3>Rating: </h3></td>
+       			 			<td><h5>${client.rating}</h5></td>        		        			
         				</tr>
         				
         				<tr class="success">

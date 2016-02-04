@@ -4,11 +4,17 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <div class="panel">
+<h3 align="center" >My Reservations:</h3>
 <c:forEach var="reservation" items="${reservations}">
 
-<h4>My Reservations</h4>
+
 <table class="tableClient">
-					
+					<thead>
+      					<tr>
+  			      			<th>Option</th>     			  			
+  			      			<th>Value</th>
+       					</tr>
+    				</thead>
     				<tbody class="tbodyClient">
       			
        			 		<tr class="success">

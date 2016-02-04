@@ -10,33 +10,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ulyssess.carrental.dao.ClientDAO;
 import com.ulyssess.carrental.entity.Client;
+import com.ulyssess.carrental.entity.Contract;
 
 @Repository
 public class ClientDAOImpl extends EntityDAOAbstract<Client, String> implements ClientDAO {
 	
 	@PersistenceContext(unitName = "Primary")
 	private EntityManager entityManager;
-	/*
-	@Transactional
-	public Client findByLogin(String login) {
-		return entityManager
-				.createQuery("select c from Client c where c.email like :login",
-						Client.class).setParameter("login", login)
-				.getSingleResult();
-	}
 
-	@Transactional
-	public List<Client> findByInitials(String lastName, String firstName) {
-		List<Client> resList;
-		resList = entityManager.createQuery("SELECT "
-				+ "		c "
-				+ "FROM Client c "
-				+ "		WHERE c.lastName like :lastName AND c.firstName like : firstName",
-				Client.class).
-				setParameter("lastName", lastName).
-				setParameter("firstName", firstName).
-				getResultList();
-		return resList;
-	}*/
+	public List<Contract> clientContracts(Client client) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 }

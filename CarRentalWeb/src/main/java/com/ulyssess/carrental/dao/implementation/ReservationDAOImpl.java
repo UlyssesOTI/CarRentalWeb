@@ -29,6 +29,7 @@ public class ReservationDAOImpl extends EntityDAOAbstract<Reservation, Integer> 
 				if(onlyNew){
 					query = query+ "			AND (r not in (SELECT c.reservation FROM Contract c)) ";
 				}
+				query = query+ "ORDER BY r.client.rating desc, r.date";
 		resList = entityManager.
 		createQuery(query,
 					Reservation.class).

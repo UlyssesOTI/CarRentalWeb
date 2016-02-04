@@ -9,8 +9,8 @@
 <table class="tableClient">
 					<thead>
       					<tr>
-  			      			<th></th>     			  			
-  			      			<th></th>
+  			      			<th>Option</th>     			  			
+  			      			<th>Value</th>
        					</tr>
     				</thead>
     				<tbody class="tbodyClient">

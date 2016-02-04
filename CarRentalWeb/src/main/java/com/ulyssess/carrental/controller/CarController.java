@@ -1,7 +1,7 @@
 package com.ulyssess.carrental.controller;
 
 import java.util.Date;
-import java.util.List;
+
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +13,14 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.fasterxml.jackson.annotation.JsonView;
-import com.ulyssess.carrental.dto.CarAllPageDTO;
 import com.ulyssess.carrental.entity.Car;
 import com.ulyssess.carrental.enums.Color;
 import com.ulyssess.carrental.service.CarService;
 import com.ulyssess.carrental.service.ModelService;
 import com.ulyssess.carrental.validator.CarValidator;
-import com.ulyssess.carrental.validator.FileClass;
+
 import com.ulyssess.carrental.validator.FileValidator;
 
 
@@ -56,9 +54,6 @@ public class CarController {
 		return "car-allAjax";
 	}
 	
-	
-	
-
 	/*@RequestMapping(value = "/file", method = RequestMethod.GET)
 	public String getForm(Model model) {
 		FileClass fileModel = new FileClass();
@@ -80,9 +75,18 @@ public class CarController {
 		model.addAttribute("models", modelService.findAll());
 		return "car-new";
 	}
+	
+	@RequestMapping(value = "/mEditCar")
+	public String editCarPage(Model model,@RequestParam(value="id") String id) {
+		Car car = carService.findById(id);
+		model.addAttribute("car", car);
+		model.addAttribute("colors", Color.values());
+		model.addAttribute("models", modelService.findAll());
+		return "car-edit";
+	}
 	 
 	@RequestMapping(value = "/mNewCar", method = RequestMethod.POST)
-	public String createCars(
+	public String createCar(
 			 		@ModelAttribute("car")  @Valid Car car, 
 			 		BindingResult result,
 			 		Model model){
@@ -95,6 +99,23 @@ public class CarController {
 		} else {			
 			car.setRegDate(new Date());
 			carService.add(car);
+		}
+		return returnVal;
+	}
+	
+	@RequestMapping(value = "/mUpdateCar", method = RequestMethod.POST)
+	public String updateCar(
+			 		@ModelAttribute("car")  @Valid Car car, 
+			 		BindingResult result,
+			 		Model model){
+		
+		String returnVal = "redirect:/mShowCars";
+		if (result.hasErrors()) {
+			model.addAttribute("colors", Color.values());
+			model.addAttribute("models", modelService.findAll());
+			returnVal = "car-new";
+		} else {			
+			carService.update(car);
 		}
 		return returnVal;
 	}

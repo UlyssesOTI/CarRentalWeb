@@ -6,7 +6,7 @@
 <div class="panel">
 
 
-		
+		<h3 align="center">Models:</h3>
 		
 			
 				<table class="tableClient">
@@ -14,7 +14,7 @@
 						<tr>
 							<th>Id</th>
 							<th>Name</th>
-							<th></th>
+							
 						</tr>
 					</thead>
 					<tbody class="tbodyClient">

@@ -4,29 +4,31 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%-- <%@ taglib prefix="s" uri="/struts-tags"%> --%>
 <div class="panel">
-<c:forEach var="model" items="${models}">
 
-<table class="tableClient">
+<h3 align="center" >Models:</h3>
+<c:forEach var="model" items="${models}">
+<div class="CarResultDetailManager">
+<h5 class="headerCarList"><img  src="data:image/jpeg;base64,${model.image}" height="150" width="250"/></h5>
+<table class="tableModeSpec">
 					<thead>
       					<tr>
-  			      			<th></th>     			  			
-  			      			<th></th>
+  			      			<th>Option</th>     			  			
+  			      			<th>Value</th>
        					</tr>
     				</thead>
     				<tbody class="tbodyClient">
       			
-       			 		<tr class="success">
-       			 			<td><h3>Image:</h3></td>
+       			 		
        			 			
-       			 			<%-- <td><img 	src='<c:url value="${model.imageURL}"></c:url>'  height="150" width="250"/></td> --%>
-       			 			<%-- <td><img 	src="${model.imageURL}"  height="150" width="250"/></td> --%>  
-       			 			<%-- <td><img src="${model.imageURL}"/></td>  --%>
-       			 			
-       			 			<td><h5><img  src="data:image/jpeg;base64,${model.image}" height="150" width="250"/></h5></td>        			
-        				</tr>
+						<tr class="success">
+       			 			<td><h3>Mark</h3></td>
+       			 			<td><h3>${model.markName}</h3></td>        		        			
+        				</tr>       			 			       			 			
+       			 					
+        				
         				
         				<tr class="success">
-       			 			<td><h3>${model.markName}</h3></td>
+       			 			<td><h3>Model</h3></td>
        			 			<td><h3>${model.modelName}</h3></td>        		        			
         				</tr>
         				
@@ -59,7 +61,7 @@
         				
         			</tbody>
 					</table>
-				
+				</div>
 </c:forEach>
 </div>
 

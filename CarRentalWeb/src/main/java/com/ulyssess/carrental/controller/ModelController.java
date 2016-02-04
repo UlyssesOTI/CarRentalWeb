@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +23,7 @@ import com.ulyssess.carrental.enums.GearBox;
 import com.ulyssess.carrental.service.MarkService;
 import com.ulyssess.carrental.service.ModelService;
 import com.ulyssess.carrental.validator.FileClass;
+import com.ulyssess.carrental.validator.ModelValidator;
 
 import javassist.ClassClassPath;
 
@@ -33,6 +36,13 @@ public class ModelController {
 	@Autowired
 	private MarkService markService;
 
+	@Autowired
+	private ModelValidator modelValidator;
+	
+	@InitBinder("model")
+	private void initBinder(WebDataBinder webDataBinder){
+		webDataBinder.setValidator(modelValidator);
+	}
 	
 	@RequestMapping(value="/mShowModels")
 	private String allModels(Model model,HttpServletRequest request) {
@@ -61,9 +71,8 @@ public class ModelController {
 	
 	@RequestMapping(value="/mSaveModel" ,method = RequestMethod.POST)
 	private String saveModel(
-			@ModelAttribute("model") @Valid com.ulyssess.carrental.entity.Model carModel, 
 			@Validated FileClass multipart,
-			@RequestParam(value="operation") String operation,
+			@ModelAttribute("model") @Valid com.ulyssess.carrental.entity.Model carModel, 
 			BindingResult result, 
 			Model model,
 			HttpServletRequest request){
@@ -71,7 +80,9 @@ public class ModelController {
 		String returnVal = "redirect:/mShowModels";
 		MultipartFile multipartFile = multipart.getFile();
 		if(result.hasErrors()){
-			returnVal = "redirect:/mCreateModel";
+			model.addAttribute("marks",markService.findAll());
+			model.addAttribute("gearBoxs", GearBox.values());
+			returnVal = "model-new";
 		}else{
 			byte[] image;
 			//String fullPath = request.getSession().getServletContext().getContextPath()getRealPath("tmp/images");
@@ -99,13 +110,42 @@ public class ModelController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			if(operation.equals("add")){
+			
 				modelService.add(carModel);
-			}else if(operation.equals("update")){
-				modelService.update(carModel);
-			}else if(operation.equals("remove")){
+			
+			
+		}
 				
+		return returnVal;
+	}
+	
+	
+	@RequestMapping(value="/mUpdateModel" ,method = RequestMethod.POST)
+	private String updateModel(	@Validated FileClass multipart,
+			@ModelAttribute("model") @Valid com.ulyssess.carrental.entity.Model carModel, 
+			BindingResult result, 
+			Model model,
+			HttpServletRequest request){
+		
+		String returnVal = "redirect:/mShowModels";
+		MultipartFile multipartFile = multipart.getFile();
+		if(result.hasErrors()){
+			model.addAttribute("marks",markService.findAll());
+			model.addAttribute("gearBoxs", GearBox.values());
+			returnVal = "model-edit";
+		}else{
+			byte[] image;		
+			try {
+				if(!multipartFile.isEmpty()){					
+					image = multipartFile.getBytes();
+					carModel.setImage(image);			
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
+			
+				modelService.update(carModel);
+			
 			
 		}
 				

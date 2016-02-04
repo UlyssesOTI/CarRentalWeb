@@ -13,17 +13,30 @@
       			
        			 		<tr class="success">
        			 			<td><h4>Last name: </h4></td>
-       			 			<td><h5><form:input path="lastName" /></h5></td>        		        			
+       			 			<td><h5><form:input path="lastName" readonly="true" /></h5></td>    
+       			 			<td><form:errors class="error" path="lastName"  /></td>    		        			
         				</tr>
         				<tr class="success">
        			 			<td><h4>First name: </h4></td>
-       			 			<td><h5><form:input path="firstName" /></h5></td>        		        			
+       			 			<td><h5><form:input path="firstName" readonly="true" /></h5></td>  
+       			 			<td><form:errors class="error" path="firstName"  /></td>      		        			
+        				</tr>
+        				<tr class="success">
+       			 			<td><h4>Email: </h4></td>
+       			 			<td><h5><form:input path="email" readonly="true" /></h5></td>    
+       			 			<td><form:errors class="error" path="email"  /></td>    		        			
         				</tr>
         				<tr class="success">
        			 			<td><h4>login: </h4></td>
-       			 			<td><h5><form:input path="email" /></h5></td>        		        			
+       			 			<td><h5><form:input path="login" readonly="true" /></h5></td>    
+       			 			<td><form:errors class="error" path="login"  /></td>    		        			
         				</tr>
         				
+        				<tr class="success">
+       			 			<td><h4>Rating: </h4></td>
+       			 			<td><h5><form:input path="rating" readonly="true" /></h5></td>    
+       			 			<td><form:errors class="error" path="rating"  /></td>    		        			
+        				</tr>
         				
         				
         			</tbody>
@@ -33,26 +46,9 @@
 	
 	
 	
-		<%-- <ul>
-			
-			<li>lastName: <form:input path="lastName" /></li>
-			<li>Name: <form:input path="firstName" /></li>
-			<li>email: <form:input path="email" /></li>
-			<li>password: <form:input path="password" /></li>
-			
-		</ul> --%>
+		
 		
 	</form:form>
 </div>
 
-<%-- 
-	<form:form action="cEditClient" method="post" modelAttribute="client">
-		<ul>
-			<li><form:input path="id" type="hidden"/></li>
-			<li>Last name: <form:input path="lastName"/></li>		
-			<li>First name: <form:input path="firstName"/></li>
-			<li>email: <form:input path="email"/></li>
-			
-		</ul>
-		
-	</form:form> --%>
+
